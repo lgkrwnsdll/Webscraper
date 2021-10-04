@@ -1,10 +1,5 @@
-import requests
-from bs4 import BeautifulSoup
+from indeed import extract_indeed_pages, extract_indeed_jobs
 
-indeed_result = requests.get('https://kr.indeed.com/%EC%B7%A8%EC%97%85?q=python&limit=50&start=99999')
+indeed_max_pages = extract_indeed_pages()
 
-indeed_soup = BeautifulSoup(indeed_result.text, 'html.parser')
-
-pagination = indeed_soup.find('div', {'class':'pagination'})
-
-max_page = int(pagination.find('b').text)
+extract_indeed_jobs(indeed_max_pages + 1)
