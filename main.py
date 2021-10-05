@@ -1,7 +1,6 @@
-from indeed import extract_indeed_pages, extract_indeed_jobs
+from indeed import get_jobs as get_indeed_jobs
+from so import get_jobs as get_so_jobs
 
-indeed_max_pages = extract_indeed_pages()
-
-indeed_jobs = extract_indeed_jobs(indeed_max_pages + 1)
-
-print(indeed_jobs)
+indeed_jobs = get_indeed_jobs()
+so_jobs = get_so_jobs()
+jobs = so_jobs + indeed_jobs
